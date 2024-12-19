@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 
 public class CartTests {
 
+    public static final Product PRODUCT_SHIRT = new Product(1, "Shirt", 100.0);
+    public static final Product PRODUCT_PANTS = new Product(2, "Pants", 50.0);
+
     private Cart cart;
 
     @BeforeEach
@@ -20,19 +23,15 @@ public class CartTests {
 
     @Test
     void testAddAProductToCart() {
-        Product product = new Product(1, "Shirt", 100.0);
-
-        cart.add(product);
+        cart.add(PRODUCT_SHIRT);
 
         Assertions.assertEquals(1, cart.lineItemCount());
     }
 
     @Test
     void testAddSameProductTwice() {
-        Product product = new Product(1, "Shirt", 100.0);
-
-        cart.add(product);
-        cart.add(product);
+        cart.add(PRODUCT_SHIRT);
+        cart.add(PRODUCT_SHIRT);
 
         Assertions.assertEquals(1, cart.lineItemCount());
         Assertions.assertEquals(2, cart.getLineItems().get(0).getQuantity());
@@ -40,30 +39,23 @@ public class CartTests {
 
     @Test
     void testTotalForOneProduct() {
-        Product product = new Product(1, "Shirt", 100.0);
-
-        cart.add(product);
+        cart.add(PRODUCT_SHIRT);
 
         Assertions.assertEquals(100.0, cart.totalPrice());
     }
 
     @Test
-    void totalTotalAfterAddingAProductTwice() {
-        Product product = new Product(1, "Shirt", 100.0);
-
-        cart.add(product);
-        cart.add(product);
+    void totalTotalAfterAddingSameProductTwice() {
+        cart.add(PRODUCT_SHIRT);
+        cart.add(PRODUCT_SHIRT);
 
         Assertions.assertEquals(200.0, cart.totalPrice());
     }
 
     @Test
     void testTotalForTwoProducts() {
-        Product shirt = new Product(1, "Shirt", 100.0);
-        Product pants = new Product(2, "Pants", 50.0);
-
-        cart.add(shirt);
-        cart.add(pants);
+        cart.add(PRODUCT_SHIRT);
+        cart.add(PRODUCT_PANTS);
 
         Assertions.assertEquals(150.0, cart.totalPrice());
     }
