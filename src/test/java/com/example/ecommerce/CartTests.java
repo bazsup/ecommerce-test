@@ -41,7 +41,7 @@ public class CartTests {
     void testTotalForOneProduct() {
         cart.add(PRODUCT_SHIRT);
 
-        Assertions.assertEquals(100.0, cart.totalPrice());
+        Assertions.assertEquals(PRODUCT_SHIRT.getPrice(), cart.totalPrice());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class CartTests {
         cart.add(PRODUCT_SHIRT);
         cart.add(PRODUCT_SHIRT);
 
-        Assertions.assertEquals(200.0, cart.totalPrice());
+        Assertions.assertEquals(PRODUCT_SHIRT.getPrice() * 2, cart.totalPrice());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class CartTests {
         cart.add(PRODUCT_SHIRT);
         cart.add(PRODUCT_PANTS);
 
-        Assertions.assertEquals(150.0, cart.totalPrice());
+        Assertions.assertEquals(PRODUCT_SHIRT.getPrice() + PRODUCT_PANTS.getPrice(), cart.totalPrice());
     }
 
 }
