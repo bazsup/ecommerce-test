@@ -1,20 +1,25 @@
 package com.example.ecommerce;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CartTests {
 
+    private Cart cart;
+
+    @BeforeEach
+    void setUp() {
+        cart = new Cart();
+    }
+
     @Test
     void testEmptyCart() {
-        Cart cart = new Cart();
-
         Assertions.assertEquals(0, cart.lineItemCount());
     }
 
     @Test
     void testAddAProductToCart() {
-        Cart cart = new Cart();
         Product product = new Product(1, "Shirt", 100.0);
 
         cart.add(product);
@@ -24,7 +29,6 @@ public class CartTests {
 
     @Test
     void testAddSameProductTwice() {
-        Cart cart = new Cart();
         Product product = new Product(1, "Shirt", 100.0);
 
         cart.add(product);
@@ -36,7 +40,6 @@ public class CartTests {
 
     @Test
     void testTotalForOneProduct() {
-        Cart cart = new Cart();
         Product product = new Product(1, "Shirt", 100.0);
 
         cart.add(product);
@@ -46,7 +49,6 @@ public class CartTests {
 
     @Test
     void totalTotalAfterAddingAProductTwice() {
-        Cart cart = new Cart();
         Product product = new Product(1, "Shirt", 100.0);
 
         cart.add(product);
@@ -57,7 +59,6 @@ public class CartTests {
 
     @Test
     void testTotalForTwoProducts() {
-        Cart cart = new Cart();
         Product shirt = new Product(1, "Shirt", 100.0);
         Product pants = new Product(2, "Pants", 50.0);
 
