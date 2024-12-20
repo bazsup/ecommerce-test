@@ -4,10 +4,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 
 public class Product {
 
-    public Product(Integer id, String name, Double price) {
+    public Product(Integer id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -21,7 +23,7 @@ public class Product {
         return name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -29,7 +31,7 @@ public class Product {
 
 
     private String name;
-    private Double price;
+    private BigDecimal price;
 
 
 
