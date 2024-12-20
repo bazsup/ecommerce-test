@@ -49,7 +49,7 @@ public class CartTests {
         cart.add(PRODUCT_SHIRT);
         cart.add(PRODUCT_SHIRT);
 
-        Assertions.assertEquals(100 * 2, cart.totalPrice());
+        Assertions.assertEquals(200, cart.totalPrice());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class CartTests {
         cart.add(PRODUCT_SHIRT);
         cart.add(PRODUCT_PANTS);
 
-        Assertions.assertEquals(100 + 50, cart.totalPrice());
+        Assertions.assertEquals(150, cart.totalPrice());
     }
 
 }
